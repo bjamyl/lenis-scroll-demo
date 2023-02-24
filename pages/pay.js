@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { usePaystackPayment } from "react-paystack";
 
 export default function Pay() {
@@ -10,17 +11,23 @@ export default function Pay() {
     publicKey: "pk_live_a808ad2909b00a5bde45950a88cf1cd50c3ff1ed",
   };
   const onSuccess = (reference) => {
-    alert('Success')
+    alert("Success");
   };
 
   const onClose = () => {
-    alert('Failed')
+    alert("Failed");
   };
 
   const initializePayment = usePaystackPayment(config);
 
   return (
     <div>
+      <Head>
+        <title>Payment Page</title>
+        <meta name="description" content="Confirm Payment" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <section>
         <h1>Do Not Mess With Devs!</h1>
         <button
